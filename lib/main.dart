@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
-void main(){
-  runApp(TODO(),);
+void main() {
+  runApp(
+    TODO(),
+  );
 }
 
 class TODO extends StatefulWidget {
@@ -15,12 +17,7 @@ class TODO extends StatefulWidget {
 class _TODOState extends State<TODO> {
   @override
   Widget build(BuildContext context) {
-    return   MaterialApp(
-      home:  const todo(
-      ),
-      theme:   ThemeData.dark()
-
-    );
+    return MaterialApp(home: const todo(), theme: ThemeData.dark());
   }
 }
 
@@ -29,35 +26,49 @@ class todo extends StatefulWidget {
   @override
   _todoState createState() => _todoState();
 }
+
 class _todoState extends State<todo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-  backgroundColor: Colors.transparent,
-        elevation: 0,
-        title:  Text("TODO",
-          style: tStyle(30, Purple),
-        ),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: tStyle(
+            "TODO",
 
-          children: [
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-          children:[
-            Container(
-              height: MediaQuery.of(context).size.height*0.07,
-                width: MediaQuery.of(context).size.width/1.3,
-              color: Colors.white,
-            )]),
-          ],
-        ),
+            20,
+            Purple,
 
-      )
-    );
+          ),
+          centerTitle: true,
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.07,
+                      width: MediaQuery.of(context).size.width / 1.2,
+                      color: Colors.white,
+                      child:
+                          Center(
+                            child:
+                      tStyle(
+                        date.toString(),
+                          20,
+                          Colors.black,
+                        ),)
+
+
+                      ),
+
+                  ]),
+            ],
+          ),
+        ));
   }
 }
