@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 void main(){
   runApp(TODO(),);
@@ -15,7 +16,7 @@ class _TODOState extends State<TODO> {
   @override
   Widget build(BuildContext context) {
     return   MaterialApp(
-      home: todo(
+      home:  const todo(
       ),
       theme:   ThemeData.dark()
 
@@ -35,9 +36,28 @@ class _todoState extends State<todo> {
       appBar: AppBar(
   backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text("TODO"),
+        title:  Text("TODO",
+          style: tStyle(30, Purple),
+        ),
         centerTitle: true,
       ),
+      body: SingleChildScrollView(
+        child: Column(
+
+          children: [
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+          children:[
+            Container(
+              height: MediaQuery.of(context).size.height*0.07,
+                width: MediaQuery.of(context).size.width/1.3,
+              color: Colors.white,
+            )]),
+          ],
+        ),
+
+      )
     );
   }
 }
