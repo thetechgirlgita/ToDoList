@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-final String dateT = "";
-final DateTime date = DateTime.parse(dateT);
+
+final DateTime date = DateTime.now();
 
 final Color Purple = Color(0xffd269ef);
 //final Color Card = Color(0xff);

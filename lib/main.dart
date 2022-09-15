@@ -80,6 +80,21 @@ class _todoState extends State<todo> {
               ]),
         ],
       ),
-    ));
+    ),
+      bottomNavigationBar: BottomNavigationBar(
+        items:  <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(Icons.height,),
+          label: "Add",
+          backgroundColor: Purple,),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.image),
+            activeIcon: Icon(Icons.image,),
+            label: "Add",
+            backgroundColor: Purple,),
+
+        ],
+      ),
+    );
   }
 }
