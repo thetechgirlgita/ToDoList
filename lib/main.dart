@@ -17,7 +17,10 @@ class TODO extends StatefulWidget {
 class _TODOState extends State<TODO> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const todo(), theme: ThemeData.dark());
+    return MaterialApp(
+      home: const todo(),
+      //  theme: ThemeData.dark()
+    );
   }
 }
 
@@ -31,44 +34,52 @@ class _todoState extends State<todo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
+        /*  appBar: AppBar(
+          backgroundColor: Purple,
           elevation: 0,
+
           title: tStyle(
             "TODO",
-
-            20,
-            Purple,
-
+            25,
+            Colors.white,
           ),
           centerTitle: true,
-        ),
+        ),*/
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.07,
-                      width: MediaQuery.of(context).size.width / 1.2,
-                      color: Colors.white,
-                      child:
-                          Center(
-                            child:
-                      tStyle(
-                        date.toString(),
-                          20,
-                          Colors.black,
-                        ),)
-
-
+      child: Column(
+        children: [
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                    height: MediaQuery.of(context).size.height * 0.36,
+                    width: MediaQuery.of(context).size.width / 1.02,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.horizontal(
+                        left: const Radius.circular(20),
+                        right: const Radius.circular(20),
                       ),
+                      gradient: LinearGradient(
+                        colors : [
+                        Purple,
+                          Colors.redAccent,
 
-                  ]),
-            ],
-          ),
-        ));
+                      ],
+                      begin: Alignment.centerRight,
+                        end: Alignment.centerLeft,
+                      )
+                    ),
+                    child: Center(
+                      child: tStyle(
+                        date.toString() + "\nNo Todo task today.",
+                        20,
+                        Colors.white,
+                      ),
+                    )),
+              ]),
+        ],
+      ),
+    ));
   }
 }
