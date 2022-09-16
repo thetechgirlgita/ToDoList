@@ -17,8 +17,8 @@ class TODO extends StatefulWidget {
 class _TODOState extends State<TODO> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const todo(),
+    return const MaterialApp(
+      home:  todo(),
       //  theme: ThemeData.dark()
     );
   }
@@ -56,9 +56,9 @@ class _todoState extends State<todo> {
                     height: MediaQuery.of(context).size.height * 0.36,
                     width: MediaQuery.of(context).size.width / 1.02,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        left: const Radius.circular(20),
-                        right: const Radius.circular(20),
+                      borderRadius:const  BorderRadius.horizontal(
+                        left:  Radius.circular(20),
+                        right: Radius.circular(20),
                       ),
                       gradient: LinearGradient(
                         colors : [
@@ -81,20 +81,38 @@ class _todoState extends State<todo> {
         ],
       ),
     ),
-      bottomNavigationBar: BottomNavigationBar(
-        items:  <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.height,),
-          label: "Add",
-          backgroundColor: Purple,),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.image),
-            activeIcon: Icon(Icons.image,),
-            label: "Add",
-            backgroundColor: Purple,),
+      bottomNavigationBar: BottomAppBar(
 
-        ],
-      ),
+          color: const Color(0xff2da9ef),
+          shape: const CircularNotchedRectangle(),
+          notchMargin: 5,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.list_alt_rounded,
+                  color: Colors.white,
+                  size: 28,
+                ),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+          },
+          backgroundColor: const Color(0xff2da9ef),
+          foregroundColor: const Color(0xffffffff),
+          child: const Icon(
+            Icons.add,
+            size: 36,
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
     );
   }
 }
