@@ -83,32 +83,42 @@ class _todoState extends State<todo> {
     ),
       bottomNavigationBar: BottomAppBar(
 
-          color: const Color(0xff2da9ef),
+          color: Colors.pinkAccent,
           shape: const CircularNotchedRectangle(),
-          notchMargin: 5,
+          notchMargin: 4,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  Icons.list_alt_rounded,
+                  Icons.watch_later,
                   color: Colors.white,
-                  size: 28,
+                  size: 32,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.timer,
+                  color: Colors.white,
+                  size: 32,
                 ),
               ),
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
+
           onPressed: () {
           },
-          backgroundColor: const Color(0xff2da9ef),
+          backgroundColor:  Purple,
           foregroundColor: const Color(0xffffffff),
           child: const Icon(
             Icons.add,
-            size: 36,
+            size: 40,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
