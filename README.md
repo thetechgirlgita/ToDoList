@@ -1,4 +1,4 @@
-# todolist
+# Todo List
 
 A new Flutter application.
 
