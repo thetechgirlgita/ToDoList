@@ -1,6 +1,6 @@
 # Todo List
 
-A new Flutter application.
+A new mini Flutter application.
 
 ## Getting Started
 
