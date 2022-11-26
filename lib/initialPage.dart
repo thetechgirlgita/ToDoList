@@ -27,29 +27,26 @@ class _todoState extends State<todo> {
           children: [
             SearchBox(),
             Expanded(
-              child:
-              ListView(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 35, bottom: 20),
-                    child: Text("All ToDos",
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w500,
-                      ),
+                child: ListView(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 35, bottom: 20),
+                  child: Text(
+                    "All ToDos",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-
-                  for( MainFunc todo in todosList )
-                    todoList(
-                      todo: todo,
-                 todoChangeStatus1: todoChangeStatus,
-                    DeleteItems: (){},)
-
-                ],
-
-              )
-            )// a method calling search box fubction from constant.dart file.
+                ),
+                for (MainFunc todo in todosList)
+                  todoList(
+                    todo: todo,
+                    todoChangeStatus1: todoChangeStatus,
+                    DeleteItems: DeleteItemList,
+                  )
+              ],
+            )) // a method calling search box fubction from constant.dart file.
           ],
         ),
       ),
@@ -66,7 +63,7 @@ class _todoState extends State<todo> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showAlertDialog(context);
-          },
+        },
         foregroundColor: const Color(0xffffffff),
         child: IconB(() {}, Icons.add, IconColor,
             30), //a method calling function which is present in constant.dart file
@@ -75,10 +72,18 @@ class _todoState extends State<todo> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
-  void todoChangeStatus(MainFunc todo){
-     setState((){
-      todo.isDone = !todo.isDone;});
 
+  void todoChangeStatus(MainFunc todo) {
+    setState(() {
+      todo.isDone = !todo.isDone;
+    });
   }
-}
 
+
+  void DeleteItemList(String id) {
+    setState(() {
+      todosList.removeWhere((item) => item.id == id);
+    });
+  }
+
+}

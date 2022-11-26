@@ -30,8 +30,15 @@ class todoList extends StatelessWidget{
              todo.isDone? Icons.check_box : Icons.check_box_outline_blank,
             Colors.blue, 30),
         title: Text(todo.todoText),
-        trailing: IconB((){print("deleted");},
-            Icons.delete, IconColor, 30)
+        trailing: IconButton(
+          color: IconColor,
+              iconSize: 25,
+              icon: Icon(Icons.delete),
+              onPressed:
+              (){
+          DeleteItems(todo.id);
+          },
+            )
 
 
       )

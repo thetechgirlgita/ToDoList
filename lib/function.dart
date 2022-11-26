@@ -7,10 +7,12 @@ String id;
 String todoText;
 bool isDone;
 
+
 MainFunc({
   required this.id,
   required this.todoText,
   this.isDone = false,
+
 });
 
  static List<MainFunc> todoL(){
