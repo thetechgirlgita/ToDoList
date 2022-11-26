@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -11,53 +12,66 @@ class _todoState extends State<todo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AB,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconB(() {}, Icons.menu, IconColor, 40),
-              Container(
-                height: 40,
-                width: 40,
-                child:
-              ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: Image.asset("Images/MyFormal.jpg"),))
-            ],
-          ),
+      appBar:
+          buildAppBar(), // a method calling function which is present in constant.dart file
+
+      backgroundColor: AB,
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Column(
+          children: [
+            SearchBox(),
+            Expanded(
+              child:
+              ListView(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 35, bottom: 20),
+                    child: Text("All ToDos",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  )
+                ],
+
+              )
+            )// a method calling search box fubction from constant.dart file.
+          ],
         ),
-        body: Scaffold(
-          bottomNavigationBar: BottomAppBar(
-            color: Colors.pinkAccent,
-            shape: const CircularNotchedRectangle(),
-            notchMargin: 4,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconB(
-                  () {},
-                  Icons.watch_later,
-                  Colors.white,
-                  32,
-                ),
-                IconB(
-                  () {},
-                  Icons.timer,
-                  Colors.white,
-                  32,
-                )
-              ],
+      ),
+
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.pinkAccent,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 4,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconB(
+              () {},
+              Icons.watch_later,
+              Colors.white,
+              32,
             ),
-          ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            foregroundColor: const Color(0xffffffff),
-            child: IconB(() {}, Icons.add, IconColor, 35),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-        ));
+            IconB(
+              () {},
+              Icons.timer,
+              Colors.white,
+              32,
+            )
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        foregroundColor: const Color(0xffffffff),
+        child: IconB(() {}, Icons.add, IconColor,
+            35), //a method calling function which is present in constant.dart file
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
   }
 }
