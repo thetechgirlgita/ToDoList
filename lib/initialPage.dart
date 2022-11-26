@@ -41,7 +41,10 @@ class _todoState extends State<todo> {
                   ),
 
                   for( MainFunc todo in todosList )
-                    todoList(todo: todo,)
+                    todoList(
+                      todo: todo,
+                 todoChangeStatus1: todoChangeStatus,
+                    DeleteItems: (){},)
 
                 ],
 
@@ -62,9 +65,6 @@ class _todoState extends State<todo> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-
-
-
           showAlertDialog(context);
           },
         foregroundColor: const Color(0xffffffff),
@@ -75,4 +75,10 @@ class _todoState extends State<todo> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+  void todoChangeStatus(MainFunc todo){
+     setState((){
+      todo.isDone = !todo.isDone;});
+
+  }
 }
+
