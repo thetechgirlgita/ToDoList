@@ -14,7 +14,17 @@ class _todoState extends State<todo> {
         appBar: AppBar(
           backgroundColor: AB,
           title: Row(
-            children: [IconB(() {}, Icons.menu, IconColor, 40)],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconB(() {}, Icons.menu, IconColor, 40),
+              Container(
+                height: 40,
+                width: 40,
+                child:
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Image.asset("Images/MyFormal.jpg"),))
+            ],
           ),
         ),
         body: Scaffold(
@@ -43,10 +53,8 @@ class _todoState extends State<todo> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {},
-
             foregroundColor: const Color(0xffffffff),
-            child:  IconB((){}, Icons.add, IconColor, 35
-            ),
+            child: IconB(() {}, Icons.add, IconColor, 35),
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
