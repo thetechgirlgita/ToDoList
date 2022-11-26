@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist/todo_list.dart';
+import 'function.dart';
 import 'constants.dart';
 
 class todo extends StatefulWidget {
-  const todo({Key? key}) : super(key: key);
+  todo({Key? key}) : super(key: key);
+
+  final todosList = MainFunc.todoL();
   @override
   _todoState createState() => _todoState();
 }
 
 class _todoState extends State<todo> {
+  final todosList = MainFunc.todoL();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +22,7 @@ class _todoState extends State<todo> {
 
       backgroundColor: AB,
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Column(
           children: [
             SearchBox(),
@@ -35,7 +39,10 @@ class _todoState extends State<todo> {
                       ),
                     ),
                   ),
-                  todoList()
+
+                  for( MainFunc todo in todosList )
+                    todoList(todo: todo,)
+
                 ],
 
               )
