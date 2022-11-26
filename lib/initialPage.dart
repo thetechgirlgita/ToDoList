@@ -57,14 +57,16 @@ class _todoState extends State<todo> {
         notchMargin: 4,
         child: Container(
           height: 50,
-
         ),
-
-
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+
+
+
+          showAlertDialog(context);
+          },
         foregroundColor: const Color(0xffffffff),
         child: IconB(() {}, Icons.add, IconColor,
             30), //a method calling function which is present in constant.dart file

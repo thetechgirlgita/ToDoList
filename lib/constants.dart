@@ -75,3 +75,41 @@ Container SearchBox(){
     ),
   );
 }
+
+
+
+  showAlertDialog(BuildContext context) async {
+
+  // Create button
+  Widget createButton = ElevatedButton(
+    child: Text("Create"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+
+    title: Text("New Todo"),
+    content: TextField(
+  decoration: InputDecoration(
+  contentPadding: EdgeInsets.all(0),
+
+
+
+    hintText: "Type here......",
+    ),
+    ),
+    actions: [
+      createButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );}

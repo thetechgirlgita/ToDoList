@@ -20,6 +20,8 @@ class _TODOState extends State<TODO> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      //darkTheme: ThemeData.dark(),
       home: todo(),
       //  theme: ThemeData.dark()
     );
