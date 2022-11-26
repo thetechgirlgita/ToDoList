@@ -52,34 +52,24 @@ class _todoState extends State<todo> {
       ),
 
       bottomNavigationBar: BottomAppBar(
-        color: Colors.pinkAccent,
+        color: Colors.transparent,
         shape: const CircularNotchedRectangle(),
         notchMargin: 4,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconB(
-              () {},
-              Icons.watch_later,
-              Colors.white,
-              32,
-            ),
-            IconB(
-              () {},
-              Icons.timer,
-              Colors.white,
-              32,
-            )
-          ],
+        child: Container(
+          height: 50,
+
         ),
+
+
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         foregroundColor: const Color(0xffffffff),
         child: IconB(() {}, Icons.add, IconColor,
-            35), //a method calling function which is present in constant.dart file
+            30), //a method calling function which is present in constant.dart file
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
