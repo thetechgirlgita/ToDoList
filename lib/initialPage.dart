@@ -11,7 +11,7 @@ class _todoState extends State<todo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*  appBar: AppBar(
+       appBar: AppBar(
           backgroundColor: Purple,
           elevation: 0,
 
@@ -21,43 +21,10 @@ class _todoState extends State<todo> {
             Colors.white,
           ),
           centerTitle: true,
-        ),*/
-      body: SingleChildScrollView(
-        child: Center(
-            child: Container(
-          height: MediaQuery.of(context).size.height * 0.36,
-          width: MediaQuery.of(context).size.width / 1.02,
-          decoration: BoxDecoration(
-              borderRadius: const BorderRadius.horizontal(
-                left: Radius.circular(20),
-                right: Radius.circular(20),
-              ),
-              gradient: LinearGradient(
-                colors: [
-                  Purple,
-                  Colors.redAccent,
-                ],
-                begin: Alignment.centerRight,
-                end: Alignment.centerLeft,
-              )),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-            Center(
-              child: tStyle(
-                date.toString() + "\nNo Todo task today.",
-                20,
-                Colors.white,
-              ),
-            ),
-            Container(
-              color: Purple,
-              height: 200,
+        ),
+      body: Scaffold(
 
-            )
-          ]),
-        )),
-      ),
+
       bottomNavigationBar: BottomAppBar(
         color: Colors.pinkAccent,
         shape: const CircularNotchedRectangle(),
@@ -91,6 +58,6 @@ class _todoState extends State<todo> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
+    ));
   }
 }
