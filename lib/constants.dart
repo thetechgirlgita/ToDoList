@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 final DateTime date = DateTime.now();
 
-final Color Purple = Color(0xffd269ef);
+final Color IconColor = Color(0xFF3A3A3A);
+
+final Color AB = Color(0xFFEEEEFF5); // AppBar backgornd colour
 //final Color Card = Color(0xff);
 
 tStyle(
