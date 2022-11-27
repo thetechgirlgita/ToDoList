@@ -5,15 +5,15 @@ import 'function.dart';
 import 'constants.dart';
 
 class todo extends StatefulWidget {
-  todo({Key? key}) : super(key: key);
+  todo({Key? key, id}) : super(key: key);
 
-  final todosList = MainFunc.todoL();
   @override
   _todoState createState() => _todoState();
 }
 
 class _todoState extends State<todo> {
   final todosList = MainFunc.todoL();
+  final todoController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,32 +46,41 @@ class _todoState extends State<todo> {
                     DeleteItems: DeleteItemList,
                   )
               ],
-            )) // a method calling search box fubction from constant.dart file.
+            )), // a method calling search box fubction from constant.dart file.
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                openDialog();
+                //AddTodoItems(todoController.text);
+                print(todoController.text);
+              },
+            ),
           ],
         ),
-      ),
+      ));}
 
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.transparent,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 4,
-        child: Container(
-          height: 50,
+    Future openDialog() => showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+
+        title: Text("New Todo"),
+        content: TextField(
+          controller: todoController,
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(0),
+            hintText: "Type here......",
+          ),
         ),
-      ),
+        actions: [
+          ElevatedButton(
+            child: Text("Create"),
+            onPressed: () {
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showAlertDialog(context);
-        },
-        foregroundColor: const Color(0xffffffff),
-        child: IconB(() {}, Icons.add, IconColor,
-            30), //a method calling function which is present in constant.dart file
-      ),
+              //AddItemsList();
+            },)]));
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
-  }
+
+
 
   void todoChangeStatus(MainFunc todo) {
     setState(() {
@@ -79,11 +88,23 @@ class _todoState extends State<todo> {
     });
   }
 
+  void AddTodoItems(String Text) {
+    print(Text);
+    setState(() {
+      todosList.add(MainFunc(
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        todoText: Text,
+      ));
+    }
+
+    );
+
+    todoController.clear();
+  }
 
   void DeleteItemList(String id) {
     setState(() {
       todosList.removeWhere((item) => item.id == id);
     });
   }
-
 }

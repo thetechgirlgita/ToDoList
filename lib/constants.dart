@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'function.dart';
+import 'initialPage.dart';
+import 'todo_list.dart';
+
+final todoController = TextEditingController();
 
 
 //-----------------------------------------------------------------Colors and variables ---------------------------------------------------------------------//
@@ -22,13 +26,23 @@ tStyle(
         color: color,
       ));
 }
+
 IconB(
-    Function onTap, IconData icon, Color color, double size,) {return IconButton(onPressed: onTap(), icon:  Icon(icon, color: color, size: size,),);
-
-
+  Function onTap,
+  IconData icon,
+  Color color,
+  double size,
+) {
+  return IconButton(
+    onPressed: onTap(),
+    icon: Icon(
+      icon,
+      color: color,
+      size: size,
+    ),
+  );
 }
 //-----------------------------------------------------------------------------Function---------------------------------------------------------------------//
-
 
 AppBar buildAppBar() {
   return AppBar(
@@ -41,19 +55,17 @@ AppBar buildAppBar() {
         Container(
             height: 40,
             width: 40,
-            child:
-            ClipRRect(
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
-              child: Image.asset("Images/MyFormal.jpg"),))
+              child: Image.asset("Images/MyFormal.jpg"),
+            ))
       ],
     ),
   );
-
 }
 
-Container SearchBox(){
-  return
-  Container(
+Container SearchBox() {
+  return Container(
     padding: EdgeInsets.symmetric(horizontal: 20),
     decoration: BoxDecoration(
       color: Colors.white,
@@ -78,39 +90,3 @@ Container SearchBox(){
 }
 
 
-
-  showAlertDialog(BuildContext context) async {
-
-  // Create button
-  Widget createButton = ElevatedButton(
-    child: Text("Create"),
-    onPressed: () {
-      Navigator.of(context).pop();
-    },
-  );
-
-  // Create AlertDialog
-  AlertDialog alert = AlertDialog(
-
-    title: Text("New Todo"),
-    content: TextField(
-  decoration: InputDecoration(
-  contentPadding: EdgeInsets.all(0),
-
-
-
-    hintText: "Type here......",
-    ),
-    ),
-    actions: [
-      createButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );}
