@@ -52,9 +52,9 @@ class _todoState extends State<todo> {
             IconButton(
               icon: Icon(Icons.add),
               onPressed: () {
-                openDialog(AddTodoItems(todoController.text));
-
+                openDialog(todoController.text);
                 print(todoController.text);
+
               },
             ),
           ],
@@ -79,6 +79,7 @@ class _todoState extends State<todo> {
           ElevatedButton(
             child: Text("Create"),
             onPressed: () {
+              openDialog(AddTodoItems(todoController.text));
              Navigator.pop(context);
             },)]));
 
