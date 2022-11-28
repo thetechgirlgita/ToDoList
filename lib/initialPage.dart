@@ -41,20 +41,23 @@ class _todoState extends State<todo> {
                     ),
                   ),
                   for (MainFunc todo in todosList)
+
                     todoList(
                       todo: todo,
                       todoChangeStatus1: todoChangeStatus,
                       DeleteItems: DeleteItemList,
                     )
                 ],
-              )), // a method calling search box fubction from constant.dart file.
+              )),
+              Container(
+                child:// a method calling search box fubction from constant.dart file.
               IconButton(
                 icon: Icon(Icons.add),
                 onPressed: () {
                   openDialog();
                  // print(todoController.text);
                 },
-              ),
+              ),)
             ],
           ),
         ));

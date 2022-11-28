@@ -17,9 +17,9 @@ MainFunc({
 
  static List<MainFunc> todoL(){
   return [
-    MainFunc(id: '1', todoText: "Finish Chemistry homework", ),
+    MainFunc(id: '1', todoText: "Example Todo Task", ),
 
-    MainFunc(id: '3', todoText: "Finish Physical homework", ),
+    MainFunc(id: '3', todoText: "Finishing the project", ),
   ];
 }
 }
