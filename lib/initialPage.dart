@@ -50,9 +50,18 @@ class _todoState extends State<todo> {
                 ],
               )),
               Container(
+                height: 100,
+                width:  70,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.blue,
+                ),
                 child:// a method calling search box fubction from constant.dart file.
               IconButton(
-                icon: Icon(Icons.add),
+
+                icon: Icon(Icons.add,
+                  size: 30,
+                ),
                 onPressed: () {
                   openDialog();
                  // print(todoController.text);
@@ -79,7 +88,7 @@ class _todoState extends State<todo> {
                   child: Text("Create"),
                   onPressed: () {
                     Navigator.pop(context);
-                    AddTodoItems(todoController.text);
+                     AddTodoItems(todoController.text);
                   },
                 )
               ]));
@@ -92,10 +101,13 @@ class _todoState extends State<todo> {
 
   AddTodoItems(String Text) {
     //print(Text);
+
     setState(() {
+
       todosList.add(MainFunc(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
         todoText: Text,
+
       ));
     });
 
