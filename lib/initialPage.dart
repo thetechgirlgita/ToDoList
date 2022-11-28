@@ -18,73 +18,68 @@ class _todoState extends State<todo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          buildAppBar(), // a method calling function which is present in constant.dart file
+        appBar:
+            buildAppBar(), // a method calling function which is present in constant.dart file
 
-      backgroundColor: AB,
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        child: Column(
-          children: [
-            SearchBox(),
-            Expanded(
-                child: ListView(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 35, bottom: 20),
-                  child: Text(
-                    "All ToDos",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w500,
+        backgroundColor: AB,
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          child: Column(
+            children: [
+              SearchBox(),
+              Expanded(
+                  child: ListView(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 35, bottom: 20),
+                    child: Text(
+                      "All ToDos",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
-                ),
-                for (MainFunc todo in todosList)
-                  todoList(
-                    todo: todo,
-                    todoChangeStatus1: todoChangeStatus,
-                    DeleteItems: DeleteItemList,
+                  for (MainFunc todo in todosList)
+                    todoList(
+                      todo: todo,
+                      todoChangeStatus1: todoChangeStatus,
+                      DeleteItems: DeleteItemList,
+                    )
+                ],
+              )), // a method calling search box fubction from constant.dart file.
+              IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () {
+                  openDialog();
+                 // print(todoController.text);
+                },
+              ),
+            ],
+          ),
+        ));
+  }
 
-                  )
-              ],
-            )), // a method calling search box fubction from constant.dart file.
-            IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {
-                openDialog(todoController.text);
-                print(todoController.text);
-
-              },
-            ),
-          ],
-        ),
-      ));}
-
-
-
-    Future openDialog(text) => showDialog(
+  Future openDialog() => showDialog(
       context: context,
       builder: (context) => AlertDialog(
-
-        title: Text("New Todo"),
-        content: TextField(
-          controller: todoController,
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(0),
-            hintText: "Type here......",
-          ),
-        ),
-        actions: [
-          ElevatedButton(
-            child: Text("Create"),
-            onPressed: () {
-              openDialog(AddTodoItems(todoController.text));
-             Navigator.pop(context);
-            },)]));
-
-
-
+              title: Text("New Todo"),
+              content: TextField(
+                controller: todoController,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(0),
+                  hintText: "Type here......",
+                ),
+              ),
+              actions: [
+                ElevatedButton(
+                  child: Text("Create"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    AddTodoItems(todoController.text);
+                  },
+                )
+              ]));
 
   void todoChangeStatus(MainFunc todo) {
     setState(() {
@@ -92,16 +87,14 @@ class _todoState extends State<todo> {
     });
   }
 
-   AddTodoItems(String Text) {
-    print(Text);
+  AddTodoItems(String Text) {
+    //print(Text);
     setState(() {
       todosList.add(MainFunc(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
         todoText: Text,
       ));
-    }
-
-    );
+    });
 
     todoController.clear();
   }
