@@ -14,6 +14,7 @@ class todo extends StatefulWidget {
 class _todoState extends State<todo> {
   final todosList = MainFunc.todoL();
   final todoController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,14 +45,15 @@ class _todoState extends State<todo> {
                     todo: todo,
                     todoChangeStatus1: todoChangeStatus,
                     DeleteItems: DeleteItemList,
+
                   )
               ],
             )), // a method calling search box fubction from constant.dart file.
             IconButton(
               icon: Icon(Icons.add),
               onPressed: () {
-                openDialog();
-                //AddTodoItems(todoController.text);
+                openDialog(AddTodoItems(todoController.text));
+
                 print(todoController.text);
               },
             ),
@@ -59,7 +61,9 @@ class _todoState extends State<todo> {
         ),
       ));}
 
-    Future openDialog() => showDialog(
+
+
+    Future openDialog(text) => showDialog(
       context: context,
       builder: (context) => AlertDialog(
 
@@ -75,8 +79,7 @@ class _todoState extends State<todo> {
           ElevatedButton(
             child: Text("Create"),
             onPressed: () {
-
-              //AddItemsList();
+             Navigator.pop(context);
             },)]));
 
 
@@ -88,7 +91,7 @@ class _todoState extends State<todo> {
     });
   }
 
-  void AddTodoItems(String Text) {
+   AddTodoItems(String Text) {
     print(Text);
     setState(() {
       todosList.add(MainFunc(
