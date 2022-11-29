@@ -14,6 +14,14 @@ class todo extends StatefulWidget {
 class _todoState extends State<todo> {
   final todosList = MainFunc.todoL();
   final todoController = TextEditingController();
+  List<MainFunc> searchFile = [];
+
+  @override
+  void initState() {
+    searchFile = todosList;
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +48,7 @@ class _todoState extends State<todo> {
                       ),
                     ),
                   ),
-                  for (MainFunc todo in todosList)
+                  for (MainFunc todo in searchFile)
 
                     todoList(
                       todo: todo,
@@ -97,6 +105,48 @@ class _todoState extends State<todo> {
     setState(() {
       todo.isDone = !todo.isDone;
     });
+  }
+
+  void searchItems(String input){
+    List<MainFunc> result = [];
+    if ( input.isEmpty){
+      result = todosList;
+    }
+    else {
+      result = todosList
+          .where((item) => item.todoText!
+          .toLowerCase()
+          .contains(input.toLowerCase()))
+          .toList();
+    }
+    setState(() {
+      searchFile = result;
+    });
+  }
+  Container SearchBox() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: TextField(
+        onChanged: (value) => searchItems(value),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(0),
+          prefixIcon: Icon(
+            Icons.search,
+            color: IconColor,
+          ), //a method calling function which is present in constant.dart file
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 20,
+            minWidth: 25,
+          ),
+          border: InputBorder.none,
+          hintText: "Search",
+        ),
+      ),
+    );
   }
 
   AddTodoItems(String Text) {
