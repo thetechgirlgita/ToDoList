@@ -1,6 +1,4 @@
-# Todo List
+# Todo List Application
 
-A new mini Flutter application.
 
-## Getting Started
-Starting from simple UI
+
