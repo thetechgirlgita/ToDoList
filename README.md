@@ -1,4 +1,5 @@
 # Todo List Application
 
-Application using Flutter 
+Application using Flutter framework
+
 
